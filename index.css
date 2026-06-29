@@ -1,0 +1,226 @@
+.main-container {
+  background-color: rgb(255, 255, 255);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+}
+
+.logo {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.list-container ul {
+  display: flex;
+  gap: 16px;
+}
+
+.list-container li {
+  padding: 10px;
+  font-family: "Gilroy";
+  font-size: 16px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.list-container li:hover {
+  color: #ff1e00;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 20px;
+  padding: 5px 5px 5px 0px;
+  border-style: none;
+}
+
+.search input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Gilroy", sans-serif;
+  font-size: 1rem;
+  border: 1px solid #b5b7ba00;
+  border-radius: 20px;
+  background-color: #6e6e6e3e;
+  outline: none;
+  transition: all 0.2s ease;
+  color: #02060c;
+}
+
+.search input:focus {
+  border-color: #ff1e00;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(255, 162, 0, 0.252);
+  transform: scale(1.02);
+}
+
+.cat-main-container {
+  margin: 30px;
+  margin-top: 0;
+  display: flex; /* Positions items side-by-side */
+  gap: 16px; /* Spacing between individual category items */
+  overflow-x: auto; /* Enables horizontal scrolling if items overflow */
+  white-space: nowrap; /* Prevents items from wrapping onto a new line */
+  padding-bottom: 20px;
+
+  /* Optional: Hide the default browser scrollbar for a seamless look */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.cat-main-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 2. Individual Category Item Cards */
+.cat-cards {
+  flex-shrink: 0; /* Prevents the browser from squeezing/squishing the images */
+  width: 144px; /* Control the width of your banners */
+}
+
+/* 3. The Images Inside */
+.cat-cards img {
+  width: 100%; /* Tells the image to take up the full 144px width of its card */
+  height: auto; /* Maintains aspect ratio automatically */
+  display: block;
+  cursor: pointer;
+}
+
+.main-card-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cat-heading h1 {
+  margin: 0;
+  padding-left: 40px;
+  color: #02060c;
+  font-family: "Gilroy";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: -0.45px;
+}
+
+.filter-btn button {
+  font-size: 14px;
+  font-family: 'Gilroy', sans-serif;
+  margin-right: 50px;
+  border: 0.2px solid #ff5627;
+  border-radius: 20px;
+  background-color: #ffffff3e;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.filter-btn button:focus {
+  background-color: #ff5627;
+  color: #ffffff;
+}
+
+.card-heading h1 {
+  margin: 0;
+  padding-left: 40px;
+  color: #02060c;
+  font-family: "Gilroy";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: -0.45px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  scroll-snap-align: center;
+  width: 95%;
+  overflow: scroll;
+  margin: 30px;
+  margin-top: 10px;
+}
+
+.cards::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.res-container {
+  width: 200px;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.res-container:hover {
+  transform: scale(0.96);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.res-card img {
+  width: 200px;
+  height: 180px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.res-card h1 {
+  margin: 0;
+  margin-top: 10px;
+  color: #02060c;
+  font-family: "Gilroy";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.45px;
+  white-space: nowrap; /* single line */
+  overflow: hidden; /* Hide any text spilling past the edge of the card */
+  text-overflow: ellipsis; /* Append the '...' automatically at the clip boundary */
+  width: 100%;
+}
+
+.res-card h2 {
+  font-family: "Gilroy";
+  color: #02060c;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.4px;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.rating-heading {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Spacing between the star badge and text */
+  font-size: 1.1rem;
+  color: #02060c;
+}
+
+.res-card h3 {
+  font-family: "Gilroy";
+  color: #02060c;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  margin-top: 10px;
+  white-space: nowrap; /* single line */
+  overflow: hidden; /* Hide any text spilling past the edge of the card */
+  text-overflow: ellipsis; /* Append the '...' automatically at the clip boundary */
+  width: 100%;
+}
