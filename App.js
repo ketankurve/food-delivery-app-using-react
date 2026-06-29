@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Header";
-import Search from "./src/Search";
 import Cards from "./src/Cards";
 import Categories from "./src/Categories";
 import { useState, useEffect } from "react";
@@ -10,6 +9,8 @@ import { IMG1_URL, MAIN_URL } from "./utils/Links";
 const App = () => {
   const [listOfRes, setlistOfRes] = useState([]);
   const [listOfCat, setListOfCat] = useState([]);
+  const [searchText, setSearchText] = useState([]);
+  const [filterList, setFilterList] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -23,6 +24,9 @@ const App = () => {
     setlistOfRes(
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants,
     );
+    setFilterList(
+      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants,
+    );
 
     setListOfCat(json.data.cards[0].card.card.gridElements.infoWithStyle.info);
 
@@ -32,7 +36,28 @@ const App = () => {
   return (
     <div className="main-container">
       <Header />
-      <Search />
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search for restaurants and food..."
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+
+        <button
+          onClick={() => {
+            const filteredList = listOfRes.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase()),
+            );
+
+            setFilterList(filteredList);
+          }}
+        >
+          Search
+        </button>
+      </div>
 
       <div className="cat-heading">
         <h1>What's on your mind?</h1>
@@ -55,7 +80,7 @@ const App = () => {
                 (res) => res.info.avgRating > 4,
               );
               // Update the state
-              setlistOfRes(filteredList);
+              setFilterList(filteredList);
             }}
           >
             Top Restaurants
@@ -63,7 +88,7 @@ const App = () => {
         </div>
       </div>
       <div className="cards">
-        {listOfRes.map((restaurant) => (
+        {filterList.map((restaurant) => (
           <Cards key={restaurant.info.id} restaurant={restaurant} />
         ))}
       </div>
